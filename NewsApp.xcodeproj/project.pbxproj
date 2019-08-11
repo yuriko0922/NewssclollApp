@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		92487F16DE81CE843840EADA /* Pods_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A481A8DA6F43E5019FFE3FE /* Pods_NewsApp.framework */; };
 		BE4C107E22FF94B4008D9339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C107D22FF94B4008D9339 /* AppDelegate.swift */; };
-		BE4C108022FF94B4008D9339 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C107F22FF94B4008D9339 /* ViewController.swift */; };
+		BE4C108022FF94B4008D9339 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C107F22FF94B4008D9339 /* MainViewController.swift */; };
 		BE4C108322FF94B4008D9339 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4C108122FF94B4008D9339 /* Main.storyboard */; };
 		BE4C108522FF94B6008D9339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4C108422FF94B6008D9339 /* Assets.xcassets */; };
 		BE4C108822FF94B6008D9339 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4C108622FF94B6008D9339 /* LaunchScreen.storyboard */; };
+		BE4C109022FFA9B7008D9339 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4C108F22FFA9B7008D9339 /* NewsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +21,12 @@
 		7A481A8DA6F43E5019FFE3FE /* Pods_NewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4C107A22FF94B4008D9339 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4C107D22FF94B4008D9339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE4C107F22FF94B4008D9339 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE4C107F22FF94B4008D9339 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BE4C108222FF94B4008D9339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE4C108422FF94B6008D9339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE4C108722FF94B6008D9339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE4C108922FF94B6008D9339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE4C108F22FFA9B7008D9339 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		E1E7F399392EE94C5491122E /* Pods-NewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.debug.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,7 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				BE4C107D22FF94B4008D9339 /* AppDelegate.swift */,
-				BE4C107F22FF94B4008D9339 /* ViewController.swift */,
+				BE4C107F22FF94B4008D9339 /* MainViewController.swift */,
+				BE4C108F22FFA9B7008D9339 /* NewsViewController.swift */,
 				BE4C108122FF94B4008D9339 /* Main.storyboard */,
 				BE4C108422FF94B6008D9339 /* Assets.xcassets */,
 				BE4C108622FF94B6008D9339 /* LaunchScreen.storyboard */,
@@ -203,7 +206,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE4C108022FF94B4008D9339 /* ViewController.swift in Sources */,
+				BE4C109022FFA9B7008D9339 /* NewsViewController.swift in Sources */,
+				BE4C108022FF94B4008D9339 /* MainViewController.swift in Sources */,
 				BE4C107E22FF94B4008D9339 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
