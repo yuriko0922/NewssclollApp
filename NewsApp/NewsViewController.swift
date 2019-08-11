@@ -46,8 +46,7 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        //parserと
-        parser.delegate = self
+        
         
         tableView.frame = CGRect(x: 0, y: 50, width: self.view.frame.width, height: self.view.frame.height)
         
@@ -70,7 +69,10 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
     func parserUrl(){
         let urlToSend: URL = URL(string: url)!
         parser = XMLParser(contentsOf: urlToSend)!
+        //記事情報初期化
         articles = []
+        //parserとの接続
+        parser.delegate = self
         //解析の実行
         parser.parse()
         //tableViewのリロード
@@ -133,13 +135,14 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
         
         //記事テキストフォントとテキストサイズの設定
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        cell.textLabel?.text = (articles[indexPath.row] as AnyObject).value(forKey: "title") as? String
         //テキストの色
         cell.textLabel?.textColor = UIColor.black
         
         //記事のurlのサイズとフォントと色
         cell.detailTextLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        cell.textLabel?.text = (articles[indexPath.row] as AnyObject).value(forKey: "link") as? String
         cell.detailTextLabel?.textColor = UIColor.gray
-        
         
         return cell
         
@@ -147,7 +150,7 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
     
     //セルをタップした時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
