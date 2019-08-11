@@ -72,13 +72,67 @@
                     <view key="view" contentMode="scaleToFill" id="TFH-fl-dLD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJM-Un-9Xc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="768"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bA2-wg-DlM">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6S6-l6-86W"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="tta-wo-8Kh">
+                                        <connections>
+                                            <action selector="cancel:" destination="JC1-YO-Uu1" id="hHc-uy-wow"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="UoX-wQ-SsR"/>
+                                    <barButtonItem title="←" id="1m9-ec-tP9">
+                                        <connections>
+                                            <action selector="backPage:" destination="JC1-YO-Uu1" id="RTk-l8-xlU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="x7K-iF-uXh"/>
+                                    <barButtonItem title="→" id="tda-kJ-PZo">
+                                        <connections>
+                                            <action selector="nextpage:" destination="JC1-YO-Uu1" id="LiL-ub-iUI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dlg-M7-AmK"/>
+                                    <barButtonItem systemItem="refresh" id="0iU-gL-vkm">
+                                        <connections>
+                                            <action selector="refreshPage:" destination="JC1-YO-Uu1" id="3E1-Ky-tb6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5lZ-Ol-cre" firstAttribute="trailing" secondItem="WJM-Un-9Xc" secondAttribute="trailing" id="MEM-qU-DNf"/>
+                            <constraint firstItem="bA2-wg-DlM" firstAttribute="top" secondItem="WJM-Un-9Xc" secondAttribute="bottom" id="WMh-KW-WrW"/>
+                            <constraint firstItem="WJM-Un-9Xc" firstAttribute="top" secondItem="5lZ-Ol-cre" secondAttribute="top" id="YDZ-If-mGK"/>
+                            <constraint firstItem="bA2-wg-DlM" firstAttribute="leading" secondItem="5lZ-Ol-cre" secondAttribute="leading" id="aGK-pZ-1IB"/>
+                            <constraint firstItem="5lZ-Ol-cre" firstAttribute="bottom" secondItem="bA2-wg-DlM" secondAttribute="bottom" id="c6c-hM-U5P"/>
+                            <constraint firstItem="bA2-wg-DlM" firstAttribute="trailing" secondItem="5lZ-Ol-cre" secondAttribute="trailing" id="g9r-a2-Zso"/>
+                            <constraint firstItem="WJM-Un-9Xc" firstAttribute="leading" secondItem="5lZ-Ol-cre" secondAttribute="leading" id="t9O-ZB-rIg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5lZ-Ol-cre"/>
                     </view>
+                    <connections>
+                        <outlet property="Toolber" destination="bA2-wg-DlM" id="0Tj-ap-hh3"/>
+                        <outlet property="WebView" destination="WJM-Un-9Xc" id="vfE-cj-xyo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlL-fB-314" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="698" y="23"/>
+            <point key="canvasLocation" x="1429" y="21"/>
         </scene>
     </scenes>
 </document>
