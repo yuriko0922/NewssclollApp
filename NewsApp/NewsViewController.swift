@@ -48,7 +48,7 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
         
         
         
-        tableView.frame = CGRect(x: 0, y: 50, width: self.view.frame.width, height: self.view.frame.height)
+        tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         
         //navigationDelegateとの接続
         WebView.navigationDelegate = self
@@ -96,7 +96,7 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
         if element == "title" {
             titlString.append(string)
         } else if element == "link" {
-            titlString.append(string)
+            linkString.append(string)
         }
     }
     
@@ -141,7 +141,7 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
         
         //記事のurlのサイズとフォントと色
         cell.detailTextLabel?.font = UIFont.boldSystemFont(ofSize: 13)
-        cell.textLabel?.text = (articles[indexPath.row] as AnyObject).value(forKey: "link") as? String
+        cell.detailTextLabel?.text = (articles[indexPath.row] as AnyObject).value(forKey: "link") as? String
         cell.detailTextLabel?.textColor = UIColor.gray
         
         return cell
@@ -150,7 +150,13 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
     
     //セルをタップした時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let linkUrl = ((articles[indexPath.row] as AnyObject).value(forKey: "link") as? String)?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let urlStr = (linkUrl?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))!
+        guard let url = URL(string: urlStr) else {
+            return
+        }
+        let urlRequest = NSURLRequest(url: url)
+        WebView.load(urlRequest as URLRequest)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
