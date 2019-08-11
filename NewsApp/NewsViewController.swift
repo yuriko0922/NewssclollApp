@@ -19,6 +19,16 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
     //記事情報の入れ物
     var articles:[Any] = []
     
+    //XMLファイルに解析をかけた情報
+    var elements = NSMutableDictionary()
+    //XMLファイルのタグ情報
+    var element: String = ""
+    //XMLファイルのタイトル情報
+    var titlString: String = ""
+    //XMLファイルのリンク情報
+    var linkString: String = ""
+    
+    
     
     @IBOutlet weak var WebView: WKWebView!
     
@@ -51,6 +61,9 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
         WebView.isHidden = true
         Toolber.isHidden = true
         // Do any additional setup after loading the view.
+        
+        parserUrl()
+        
     }
     
     
@@ -64,6 +77,43 @@ class NewsViewController: UIViewController,IndicatorInfoProvider,UITableViewData
         tableView.reloadData()
     }
     
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        
+        element = elementName
+        //エレメントにタイトルが入っていたら
+        if element == "item" {
+            //初期化
+            elements = [:]
+            titlString = ""
+            linkString = ""
+        }
+        
+    }
+    
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        if element == "title" {
+            titlString.append(string)
+        } else if element == "link" {
+            titlString.append(string)
+        }
+    }
+    
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        
+        if elementName == "item" {
+            //titlStringが空でなければ
+            if titlString != "" {
+                elements.setObject(titlString, forKey: "title" as NSCopying)
+            }
+            
+            if linkString != "" {
+                elements.setObject(linkString, forKey: "link" as NSCopying)
+            }
+            //articlesの中にelementsを入れる
+            articles.append(elements)
+        }
+        
+    }
     
     //セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
